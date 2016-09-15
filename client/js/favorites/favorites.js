@@ -31,15 +31,16 @@ angular.module('fridgely.favorites', [])
 			}
 		};
 
-		$scope.removeFavorite = (favorite) => {
+		$scope.shared.removeFavorite = (favorite) => {
 			console.log(favorite);
-			// var index = $scope.shared.favorites.indexOf(favorite);
-  	// 		$scope.shared.favorites.splice(index, 1); 
+			var index = $scope.shared.favorites.indexOf(favorite);
+  			$scope.shared.favorites.splice(index, 1); 
 			
 			Favorites.removeFavorite(favorite).then(() => {
 				getFavorites();
 			});
-			// $scope.shared.initIngredients();
+
+			$scope.shared.initIngredients();
 			// console.log('inside remove favorites: ',$scope.shared.favorites);
 		};
 
